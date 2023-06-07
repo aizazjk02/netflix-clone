@@ -1,6 +1,7 @@
 import React from 'react'
 import "./homeScreen.css"
 import Nav from '../../components/nav/nav'
+import Banner from '../../components/banner/banner'
 const HomeScreen = () => {
   return (
       <div className='HomeScreen'>
@@ -11,7 +12,7 @@ const HomeScreen = () => {
         Rows 
     */}
           <Nav />
-          
+          <Banner/>
       </div>
   )
 }
