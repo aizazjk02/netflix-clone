@@ -1,5 +1,5 @@
 import HomeScreen from "./pages/homeScreen/homeScreen"
-import "./app.css"
+import "./App.css"
 const App = () => {
     return (
         <div className="app">
