@@ -7,7 +7,7 @@ import requests from '../../api/request'
 const HomeScreen = () => {
   const {fetchTrending, fetchNetflixOriginals, fetchActionMovies, fetchComedyMovies, fetchRomanceMovies, fetchHorrorMovies,fetchDocumentaries, fetchTopRated} = requests
   return (
-      <div className='HomeScreen'>
+      <div className='homeScreen'>
       {/**
       Component Structure 
        Navbar
