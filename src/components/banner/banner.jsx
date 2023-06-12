@@ -14,10 +14,11 @@ const Banner = () => {
 
         fetchDataForBanner()
     }, [])
+    
     const truncate = (str, max) => {
         return str.length > max ? str.substr(0, max - 1) + "..." : str
     }
-    console.log(banner)
+
     const { original_title, title, name, overview, backdrop_path } = banner
     return (
         <>

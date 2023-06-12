@@ -12,7 +12,6 @@ const SignUp = () => {
     const handleSignIn = async (e) => {
         e.preventDefault()
         const userAuth = await signInUserWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
-        console.log("🚀 ~ file: signUp.jsx:14 ~ handleSignIn ~ userAuth:", userAuth)
         if(userAuth) navigate("/")
     }
     return (

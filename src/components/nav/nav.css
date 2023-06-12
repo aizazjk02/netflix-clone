@@ -1,9 +1,9 @@
 .nav {
     position: fixed;
     top: 0;
-    padding: 20px;
+    padding: 30px;
     width: 100%;
-    height: 30px;
+    height: 50px;
     z-index: 1;
 
     transition: all 300ms ease-in;
@@ -16,12 +16,13 @@
 .nav__container {
 	display: flex;
 	justify-content: space-between;
+    align-items: center;
 }
 
 .nav__logo {
 	position: fixed;
 	left: 0;
-    top: 10px;
+    left: 10px;
 	width: 80px;
 	cursor: pointer;
 }
