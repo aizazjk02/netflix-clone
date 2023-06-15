@@ -19,7 +19,7 @@ const Login = () => {
     useEffect(() => {
         if(user) navigate("/")
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [user])
     const [signIn, setSignIn] = useState(false)
     const emailRef = useRef(null)
     const passwordRef = useRef(null)
@@ -27,7 +27,7 @@ const Login = () => {
     const handleSignUp = async (e) => {
         e.preventDefault()
         await signUpUserWithEmailAndPassword(emailRef.current.value, passwordRef.current.value)
-
+        
     }
 
     

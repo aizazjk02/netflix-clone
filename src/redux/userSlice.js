@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { signOutCurrentUser } from "../firebase";
+// import { signOutCurrentUser } from "../firebase";
 export const userSlice = createSlice({
     name: "user",
     initialState: {
@@ -10,15 +10,19 @@ export const userSlice = createSlice({
         login: (state, action) => {
             state.user = action.payload
         }, 
-        logout: async state => {
-            await signOutCurrentUser()
+        logout: state => {
+            // await signOutCurrentUser()
             state.user = null
+        },
+        addSubscription: (state, action) => {
+            state.user = {...state.user, subscription: action.payload}
         }
     }
 })
 
-export const { login, logout } = userSlice.actions
+export const { login, logout, addSubscription } = userSlice.actions
 
-export const selectUser = state => state.user
+export const selectUser = state => state.user.user
+export const selectUserSubscription = state => state.user.user.subscription
 
 export default userSlice.reducer

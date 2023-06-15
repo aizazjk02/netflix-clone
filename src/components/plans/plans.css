@@ -1,0 +1,30 @@
+.plans__container {
+    display: flex;
+    justify-content: space-between;
+padding: 20px;
+}
+
+.plan__name {
+    font-weight: bold;
+    font-size: 1.25rem;
+}
+
+.plan__description {
+    font-weight: bold;
+    font-size: .825rem;
+}
+.subscribe__btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: #e50914;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.unsubscribe {
+    background-color: grey;
+}

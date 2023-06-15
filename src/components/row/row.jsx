@@ -14,7 +14,7 @@ const Row = ({ title, fetchUrl, isLargeRow = false }) => {
 
         fetchData()
     }, [fetchUrl])
-
+    // console.log(movies[0])
  
     return (
         <>
