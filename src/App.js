@@ -3,12 +3,12 @@ import "./App.css"
 import { Routes, Route } from "react-router-dom"
 import Login from "./pages/login/login"
 import { useEffect } from "react"
-import { onAuthStateChangeListner,  db } from "./firebase"
+import { onAuthStateChangeListner, db } from "./firebase"
 import { collection, query, getDocs } from "firebase/firestore"
 import { login, logout, addSubscription } from "./redux/userSlice"
 import { useDispatch } from "react-redux"
 import ProfileScreen from "./components/profileScreen/profileScreen"
-import { setPlans } from "./redux/plansSlice"
+
 const App = () => {
     const dispatch = useDispatch()
     const fetchCurrentSubscription = async (uid) => {
@@ -23,10 +23,10 @@ const App = () => {
         )
     }
     useEffect(() => {
-        
-        dispatch(setPlans())
+
+
         const unsubscribe = onAuthStateChangeListner(userAuth => {
-            
+
             if (userAuth) {
 
                 dispatch(login({
@@ -42,14 +42,14 @@ const App = () => {
             }
         })
         return unsubscribe
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (
         <div className="app">
             <Routes>
-                <Route path="/" element={<HomeScreen />} />
-                <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Login />} />
+                <Route path="/home" element={<HomeScreen />} />
                 <Route path="/profile" element={<ProfileScreen />} />
             </Routes>
         </div>

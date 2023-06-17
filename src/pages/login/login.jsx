@@ -17,7 +17,7 @@ import { useSelector } from "react-redux"
 const Login = () => {
     const user = useSelector(selectUser)
     useEffect(() => {
-        if(user) navigate("/")
+        if(user) navigate("/home")
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [user])
     const [signIn, setSignIn] = useState(false)

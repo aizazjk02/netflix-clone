@@ -17,7 +17,7 @@ const ProfileScreen = () => {
 
 
     const handleNavigation = () => {
-        if (!user) navigate("/login")
+        if (!user) navigate("/")
     }
 
 
@@ -45,7 +45,7 @@ const ProfileScreen = () => {
                                 <h2>{user.email}</h2>
                                 <div className="profileScreen__plans">
                                     <p className="currentPlan">
-                                        Plans (Current Plan : {user.subscription?.role})
+                                        {user.subscription ? `Plans (Current Plan : ${user.subscription?.role})` : ""}
                                     </p>
                                     
                                     <div className="subscriptions">

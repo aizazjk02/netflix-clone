@@ -11,13 +11,13 @@ const HomeScreen = () => {
   const { fetchTrending, fetchNetflixOriginals, fetchActionMovies, fetchComedyMovies, fetchRomanceMovies, fetchHorrorMovies, fetchDocumentaries, fetchTopRated } = requests
   
   const user = useSelector(selectUser)
-  // const userSubscription = useSelector(selectUserSubscription)
+  const userSubscription = useSelector(selectUserSubscription)
   console.log(user)
   const navigate = useNavigate()
   const handleNavigation = () => {
     if (user === null) navigate("/login")
-    if (!user.subscription) navigate("/profile")
-    // else if(userSubscription.status !== "active") navigate("/profile")
+    else if (!userSubscription) navigate("/profile")
+    // else if(userSubscription?.status !== "active") navigate("/profile")
   }
   
   useEffect(() => {
