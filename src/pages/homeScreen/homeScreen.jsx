@@ -12,7 +12,7 @@ const HomeScreen = () => {
   
   const user = useSelector(selectUser)
   const userSubscription = useSelector(selectUserSubscription)
-  console.log(user)
+  // console.log(user)
   const navigate = useNavigate()
   const handleNavigation = () => {
     if (user === null) navigate("/login")
