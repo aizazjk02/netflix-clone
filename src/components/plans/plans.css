@@ -1,3 +1,7 @@
+.plans {
+    position: relative;
+}
+
 .plans__container {
     display: flex;
     justify-content: space-between;
@@ -27,4 +31,17 @@ padding: 20px;
 
 .unsubscribe {
     background-color: grey;
+}
+
+@media only screen and (max-width:800px) {
+    .plans__container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .plan__info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
 }

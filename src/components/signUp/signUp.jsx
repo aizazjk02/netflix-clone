@@ -23,7 +23,7 @@ const SignUp = () => {
                 <button className="signUp__form__btn" type="submit" onClick={handleSignIn}>Sign In</button>
             </form>
             <h4 className="signUp__prompt">
-                <span>New to Netflix?</span> <a href="/login"  className="signUp__link"> Sign Up Now.</a>
+                <span>New to Netflix?</span> <a href="/"  className="signUp__link"> Sign Up Now.</a>
             </h4>
         </div>
     )

@@ -3,9 +3,11 @@ import { useState, useEffect } from "react"
 import NetflixLogo from "../../assets/netflix_transparent.png"
 import Avatar from "../../assets/Netflix-avatar.png"
 import { useNavigate } from "react-router-dom"
-
+import { selectUserSubscription } from "../../redux/userSlice"
+import { useSelector } from "react-redux"
 const Nav = () => {
     const [show, handleShow] = useState(false)
+    const userSubscription = useSelector(selectUserSubscription)
     const navigate = useNavigate()
     const transitionNavbar = () => {
         window.scrollY > 100 ? handleShow(true) : handleShow(false)
@@ -21,7 +23,7 @@ const Nav = () => {
     return (
         <div className={`${show ? "nav__black" : ""} nav`}>
             <div className="nav__container">
-                <img onClick={() => navigate("/")} src={NetflixLogo} alt="logo" className="nav__logo" />
+                <img onClick={() => { userSubscription ? navigate("/") : alert("You are not subscribed!") }} src={NetflixLogo} alt="logo" className="nav__logo" />
                 <img onClick={() => navigate("/profile")} src={Avatar} alt="avatar" className="nav__avatar" />
             </div>
 

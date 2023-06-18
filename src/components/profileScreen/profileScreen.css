@@ -25,7 +25,7 @@
     width: 100%;
 }
 
-.profileScreen__info > img {
+.avatar {
     height: 100px;
 }
 
@@ -68,3 +68,8 @@
     margin-bottom: 20px;
 }
 
+@media only screen and (max-width:800px) {
+    .avatar {
+        height: 40px;
+    }
+}

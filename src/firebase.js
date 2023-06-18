@@ -1,10 +1,11 @@
+/* eslint-disable no-unused-vars */
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth"
 
-import { loadStripe } from "@stripe/stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
 import {getFirestore, collection, query, where, getDoc, getDocs, doc, setDoc, addDoc, onSnapshot, deleteDoc} from "firebase/firestore"
 import { useDocumentDataOnce } from 'react-firebase-hooks/firestore';
 // Your web app's Firebase configuration
@@ -33,12 +34,33 @@ export const signUpUserWithEmailAndPassword = async (email, password) => {
 
     } catch (error) {
         console.log(error)
+        switch (error.code) {
+            case "auth/email-already-in-use": alert("User already exists!")
+                return 
+            case "auth/weak-password": alert("Password should be at least 6 characters.")
+                return
+            default: alert("Something went wrong! please try again.")
+                return
+        }
     }
 }
 
 export const signInUserWithEmailAndPassword = async (email, password) => {
     if (!email || !password) return
-    return await signInWithEmailAndPassword(auth, email, password)
+    try {
+        await signInWithEmailAndPassword(auth, email, password)
+        
+    } catch (error) {
+        console.log(error.code)
+        switch (error.code) {
+            case "auth/wrong-password": alert("Invalid password!")
+                return
+            case "auth/user-not-found": alert("User does not exists!")
+                return
+            default: alert("something went wrong, please try again!")
+                return
+        }
+    }
 
 }
 
@@ -90,10 +112,10 @@ export const handleSubscriptionCheckout = async (priceId, {...extraData}, naviga
             price: priceId,
             ...extraData
         })
-        window.location.assign(session.url).then(() => { }, () => {navigate("/")})
+        window.location.assign(session.url).then(() => {navigate("/profile") }, () => {navigate("/")})
         
     } catch (error) {
-        return 
+        
     }
 }
 
